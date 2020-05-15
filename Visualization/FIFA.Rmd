@@ -42,7 +42,7 @@ https://rstudio.com/products/rstudio/download/
 
 
 
-# R Programlama Dilini Nasıl Öğrenirim
+# R Programlama Dilini Nasıl Öğrenirim?
 
 **Datacamp**
 
@@ -176,14 +176,17 @@ ggplot2::txhousing
 knitr::include_graphics("www/gorsel2.jpg") 
 ```
 
+*ggplot2 Referans Kağıdı*
+https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+
 
 **ggplot yapısı**
+
 
 ```{r eval=FALSE, include=TRUE}
 ggplot(data, mapping = aes(x,y))+
   geom_
 ```
-
 
 
 ### Tek Değişkenli
@@ -417,7 +420,7 @@ df$Wages <- str_replace_all(df$Wages,"K", "000")
 
 df$Wages <- as.numeric(df$Wages)
 
-df <- df  %>% mutate(Values = if_else(df$Values < 1000 , Values ** 1000000, Values))
+df <- df  %>% mutate(Values = if_else(df$Values < 1000 , Values * 1000000, Values))
 ```
 
 
@@ -442,7 +445,7 @@ rm(defence, midfielder)
 ```{r}
 # From categorical to numeric
 df %<>%
-  mutate(Height = round((as.numeric(str_sub(Height, start=1,end = 1))**30.48) + (as.numeric(str_sub(Height, start = 3, end = 5))** 2.54)),
+  mutate(Height = round((as.numeric(str_sub(Height, start=1,end = 1))*30.48) + (as.numeric(str_sub(Height, start = 3, end = 5))* 2.54)),
          Weight = round(as.numeric(str_sub(Weight, start = 1, end = 3)) / 2.204623))
 ```
 
